@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="67172f00-6ad9-43b1-82b9-a3bf03a765e0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Store.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Store.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store.py" beforeDir="false" afterPath="$PROJECT_DIR$/store.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -12,16 +13,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/store.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="148" lean-forward="true" selection-start-line="148" selection-end-line="148" />
+            <state relative-caret-position="344">
+              <caret line="182" lean-forward="true" selection-start-line="182" selection-end-line="182" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/admin.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
@@ -35,6 +36,9 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>id</find>
+      <find>&quot;interna</find>
+      <find>id_produ</find>
+      <find>category_</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -64,11 +68,6 @@
             <path>
               <item name="Store" type="b2602c69:ProjectViewProjectNode" />
               <item name="Store" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Store" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Store" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Store" type="b2602c69:ProjectViewProjectNode" />
@@ -153,7 +152,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3477707" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23184714" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -194,17 +193,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/store.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="148" lean-forward="true" selection-start-line="148" selection-end-line="148" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/admin.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="43" column="93" selection-start-line="43" selection-start-column="86" selection-end-line="43" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/store.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="182" lean-forward="true" selection-start-line="182" selection-end-line="182" />
         </state>
       </provider>
     </entry>

@@ -9,14 +9,14 @@ PRIMARY KEY (id)
 );
 
 CREATE TABLE product(
-id_product INT AUTO_INCREMENT,
+id INT AUTO_INCREMENT,
 title VARCHAR(30) UNIQUE,
 category_name VARCHAR(30),
 description VARCHAR(500),
 favorite ENUM("0","1"),
 price INT,
 img_url VARCHAR(100),
-PRIMARY KEY (id_product)
+PRIMARY KEY (id)
 );
 
 DROP TABLE category;
