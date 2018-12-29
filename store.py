@@ -117,14 +117,14 @@ def add_or_edit_product():
         with connection.cursor() as cursor:
             # The if / else differenciate our actions for add/edit of product
             if id == "":
-                sql = "INSERT INTO product (title, category_name, description, favorite, price, img_url) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')".format(title,
+                sql = "INSERT INTO product (title, category, description, favorite, price, img_url) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')".format(title,
                                                                                                                                                           category,
                                                                                                                                                           desc,
                                                                                                                                                           favorite,
                                                                                                                                                           price,
                                                                                                                                                           img_url)
             else:
-                sql = "UPDATE product SET title = '{0}', category_name = '{1}', description = '{2}', favorite = '{3}', price = '{4}', img_url = '{5}' WHERE id = '{6}' ".format(title,
+                sql = "UPDATE product SET title = '{0}', category = '{1}', description = '{2}', favorite = '{3}', price = '{4}', img_url = '{5}' WHERE id = '{6}' ".format(title,
                                                                                                                                                                                         category,
                                                                                                                                                                                         desc,
                                                                                                                                                                                         favorite,
@@ -193,6 +193,22 @@ def fetch_products():
 
     except Exception as e:
         return json.dumps({"STATUS": "ERROR", "MSG": str(e), "CODE": 500})
+
+
+# List products by category
+@get('/category/<id>/products')
+def fetch_products_from(id):
+    try:
+        with connection.cursor() as cursor:
+            sql = "SELECT * FROM product WHERE category = '{}'".format(id)
+            cursor.execute(sql)
+            products_in_cat = cursor.fetchall()
+            return json.dumps({"STATUS": "SUCCESS", "PRODUCTS": products_in_cat, "CODE": 200})
+    except:
+        if response.status_code == 404:
+            return json.dumps({"STATUS": "ERROR", "MSG": "category {} not found".format(id), "CODE": 404})
+        else:
+            return json.dumps({"STATUS": "ERROR", "MSG": "Internal error", "CODE": 500})
 
 
 # run(host='0.0.0.0', port=argv[1])

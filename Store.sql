@@ -11,13 +11,13 @@ PRIMARY KEY (id)
 CREATE TABLE product(
 id INT AUTO_INCREMENT,
 title VARCHAR(30) UNIQUE,
-category_name VARCHAR(30),
+category VARCHAR(30),
 description VARCHAR(500),
 favorite ENUM("0","1"),
 price INT,
-img_url VARCHAR(100),
+img_url VARCHAR(500),
 PRIMARY KEY (id)
 );
 
-DROP TABLE category;
-DROP TABLE product;
+-- DROP TABLE category;
+-- DROP TABLE product;
