@@ -125,12 +125,12 @@ def add_or_edit_product():
                                                                                                                                                           img_url)
             else:
                 sql = "UPDATE product SET title = '{0}', category = '{1}', description = '{2}', favorite = '{3}', price = '{4}', img_url = '{5}' WHERE id = '{6}' ".format(title,
-                                                                                                                                                                                        category,
-                                                                                                                                                                                        desc,
-                                                                                                                                                                                        favorite,
-                                                                                                                                                                                        price,
-                                                                                                                                                                                        img_url,
-                                                                                                                                                                                        id)
+                                                                                                                                                                    category,
+                                                                                                                                                                    desc,
+                                                                                                                                                                    favorite,
+                                                                                                                                                                    price,
+                                                                                                                                                                    img_url,
+                                                                                                                                                                    id)
             cursor.execute(sql)
             connection.commit()
             return json.dumps({"STATUS": "SUCCESS", "MSG": "Product was added/updated successfully", "PRODUCT_ID": cursor.lastrowid, "CODE": 201})
