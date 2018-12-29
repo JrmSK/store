@@ -112,7 +112,7 @@ def add_or_edit_product():
     try:
         # Makes sure we don't add a product with missing values:
         for i in [category, title, desc, favorite, price, img_url]:
-            if i == "":
+            if i == "" or i is None:
                 return json.dumps({"STATUS": "ERROR", "MSG": "Some parameters are missing", "CODE": 400})
         with connection.cursor() as cursor:
             # The if / else differenciate our actions for add/edit of product
@@ -200,7 +200,7 @@ def fetch_products():
 def fetch_products_from(id):
     try:
         with connection.cursor() as cursor:
-            sql = "SELECT * FROM product WHERE category = '{}'".format(id)
+            sql = "SELECT * FROM product WHERE category = '{}' ORDER BY favorite DESC, id ASC".format(id)
             cursor.execute(sql)
             products_in_cat = cursor.fetchall()
             return json.dumps({"STATUS": "SUCCESS", "PRODUCTS": products_in_cat, "CODE": 200})
