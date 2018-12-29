@@ -1,0 +1,11 @@
+CREATE DATABASE store;
+
+USE store;
+
+CREATE TABLE category(
+name VARCHAR(30) UNIQUE,
+id INT AUTO_INCREMENT,
+PRIMARY KEY (id)
+);
+
+DROP TABLE category;
