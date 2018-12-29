@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="67172f00-6ad9-43b1-82b9-a3bf03a765e0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Store.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Store.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store.py" beforeDir="false" afterPath="$PROJECT_DIR$/store.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/store.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="113" column="143" selection-start-line="113" selection-start-column="143" selection-end-line="113" selection-end-column="143" />
+            <state relative-caret-position="370">
+              <caret line="125" column="100" selection-start-line="125" selection-start-column="100" selection-end-line="125" selection-end-column="100" />
             </state>
           </provider>
         </entry>
@@ -146,6 +147,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1401" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11231884" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -202,8 +204,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/store.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="113" column="143" selection-start-line="113" selection-start-column="143" selection-end-line="113" selection-end-column="143" />
+        <state relative-caret-position="370">
+          <caret line="125" column="100" selection-start-line="125" selection-start-column="100" selection-end-line="125" selection-end-column="100" />
         </state>
       </provider>
     </entry>

@@ -110,18 +110,38 @@ def add_or_edit_product():
         favorite = 0
 
     try:
+        # Makes sure we don't add a product with missing values:
+        for i in [category, title, desc, favorite, price, img_url]:
+            if i == "":
+                return json.dumps({"STATUS": "ERROR", "MSG": "Some parameters are missing", "CODE": "400"})
+
         with connection.cursor() as cursor:
-            sql = "INSERT INTO product (title, category_name, description, favorite, price, img_url) VALUES ('{}', '{}', '{}', '{}', '{}', '{}')".format(title,
-                                                                                                                                                      category,
-                                                                                                                                                      desc,
-                                                                                                                                                      favorite,
-                                                                                                                                                      price,
-                                                                                                                                                      img_url)
+            # The if / else differenciate our actions for add/edit of product
+            if id_product == "":
+                sql = "INSERT INTO product (title, category_name, description, favorite, price, img_url) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')".format(title,
+                                                                                                                                                          category,
+                                                                                                                                                          desc,
+                                                                                                                                                          favorite,
+                                                                                                                                                          price,
+                                                                                                                                                          img_url)
+            else:
+                sql = "UPDATE product SET title = '{0}', category_name = '{1}', description = '{2}', favorite = '{3}', price = '{4}', img_url = '{5}', ".format(title,
+                                                                                                                                                          category,
+                                                                                                                                                          desc,
+                                                                                                                                                          favorite,
+                                                                                                                                                          price,
+                                                                                                                                                          img_url)
             cursor.execute(sql)
             connection.commit()
-            return json.dumps({"STATUS": "SUCCESS", "PRODUCT_ID": cursor.lastrowid, "CODE": "201"})
+            return json.dumps({"STATUS": "SUCCESS", "MSG": "Product was added/updated successfully", "PRODUCT_ID": cursor.lastrowid, "CODE": "201"})
+
     except Exception as e:
-        return json.dumps({"STATUS": "ERROR", "MSG": str(e), "CODE": "404"})
+        if response.status_code == 404:
+            return json.dumps({"STATUS": "ERROR", "MSG": "Category not found", "CODE": "404"})
+        elif response.status_code == 500:
+            return json.dumps({"STATUS": "ERROR", "MSG": "Internal Error", "CODE": "500"})
+        else:
+            return json.dumps({"STATUS": "ERROR", "MSG": str(e)})
 
 
 # run(host='0.0.0.0', port=argv[1])
