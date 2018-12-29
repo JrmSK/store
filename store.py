@@ -114,6 +114,7 @@ def add_or_edit_product():
         for i in [category, title, desc, favorite, price, img_url]:
             if i == "":
                 return json.dumps({"STATUS": "ERROR", "MSG": "Some parameters are missing", "CODE": "400"})
+        print(type(price))
 
         with connection.cursor() as cursor:
             # The if / else differenciate our actions for add/edit of product
@@ -125,12 +126,13 @@ def add_or_edit_product():
                                                                                                                                                           price,
                                                                                                                                                           img_url)
             else:
-                sql = "UPDATE product SET title = '{0}', category_name = '{1}', description = '{2}', favorite = '{3}', price = '{4}', img_url = '{5}', ".format(title,
-                                                                                                                                                          category,
-                                                                                                                                                          desc,
-                                                                                                                                                          favorite,
-                                                                                                                                                          price,
-                                                                                                                                                          img_url)
+                sql = "UPDATE product SET title = '{0}', category_name = '{1}', description = '{2}', favorite = '{3}', price = '{4}', img_url = '{5}' WHERE id_product = '{6}' ".format(title,
+                                                                                                                                                                                        category,
+                                                                                                                                                                                        desc,
+                                                                                                                                                                                        favorite,
+                                                                                                                                                                                        price,
+                                                                                                                                                                                        img_url,
+                                                                                                                                                                                        id_product)
             cursor.execute(sql)
             connection.commit()
             return json.dumps({"STATUS": "SUCCESS", "MSG": "Product was added/updated successfully", "PRODUCT_ID": cursor.lastrowid, "CODE": "201"})
@@ -142,6 +144,24 @@ def add_or_edit_product():
             return json.dumps({"STATUS": "ERROR", "MSG": "Internal Error", "CODE": "500"})
         else:
             return json.dumps({"STATUS": "ERROR", "MSG": str(e)})
+
+
+# Delete a product
+@delete('/product/<id>')
+def delete_product(id):
+    try:
+        with connection.cursor() as cursor:
+            sql = "DELETE FROM product WHERE id = '{}'".format(id)
+            cursor.execute(sql)
+            connection.commit()
+            return json.dumps({"STATUS": "SUCCESS", "MSG": "Product {} was successfully deleted".format(id), "CODE": "201"})
+    except:
+        if response.status_code == 404:
+            return json.dumps({"STATUS": "ERROR", "MSG": "Product {} not found".format(id), "CODE": response.status_code})
+        elif response.status_code == 500:
+            return json.dumps({"STATUS": "ERROR", "MSG": "Internal error", "CODE": response.status_code})
+        else:
+            return json.dumps({"STATUS": "ERROR", "MSG": "Product {} was not deleted due to an error".format(id), "CODE": response.status_code})
 
 
 # run(host='0.0.0.0', port=argv[1])
